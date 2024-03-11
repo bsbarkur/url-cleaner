@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
@@ -6,6 +6,7 @@ app = Flask(__name__)
 def home():
     return 'Hello, World!'
 
-@app.route('/about')
+@app.route('/clean')
 def about():
-    return 'About'
+    url = request.args.get('url')
+    return jsonify({"cleaned_url": url})
