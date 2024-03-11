@@ -9,4 +9,5 @@ def home():
 @app.route('/clean')
 def about():
     url = request.args.get('url')
-    return jsonify({"cleaned_url": url})
+    url_split = url.split("?")
+    return jsonify({"cleaned_url": url_split[0]})
